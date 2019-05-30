@@ -63,7 +63,6 @@ $( document ).ready(function(){
 
     function LinkNode(node1 , node2, array) {
         let value;
-        let active = 1;
         let list = array.unique();
         if ( node1 !== node2) {
             for (let i = 0; i < list.length; i++) {
@@ -71,22 +70,7 @@ $( document ).ready(function(){
                     value = list[i].id;
                     for (let i = 0; i < list.length; i++) {
                         if (node2 === list[i].label) {
-                            if (window.edges.lenght < 0 && active === 1) {
-                                window.edges.push({from: value, to: list[i].id});
-                                active = 0
-                            }
-                            for (let i = 0; i < array.length; i++) {
-                                if (node2 === window.edges.to) {
-                                    active = 0;
-                                    console.log('The node you want to join is already active. try a different node');                                                                      
-                                }else{
-                                    active = 1;
-                                }                         
-                            }
-
-                            if (window.edges.lenght > 0 && active === 1) {
-                                window.edges.push({from: value, to: list[i].id});
-                            }
+                            window.edges.push({from: value, to: list[i].id});
                         } 
                     }
                 }    
